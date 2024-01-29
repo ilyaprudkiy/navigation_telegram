@@ -11,19 +11,20 @@ class _MenuWidgets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       child: Row(
         children: [
-          Icon(
-            data.icons,
-          ),
+          //Если в объект передается лишь 1 параметр, то не стоит ставить в конце запятую
+          //Так как при форматировании кода оно будет перебрасывать на отдельную строку
+          //А это нагруждает немного код
+          Icon(data.icons),
           const SizedBox(
-            width: 10,
+            width: 10, // <- Вот тут тоже запятую можешь убрать
           ),
           Expanded(
-            child: Text(data.text),
+            child: Text(data.text),  // <- И вот тут и потом отформатировать
           ),
-          Icon(Icons.chevron_right),
+          const Icon(Icons.chevron_right),
         ],
       ),
     );

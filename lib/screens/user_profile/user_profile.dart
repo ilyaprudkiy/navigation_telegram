@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:my_project/widgets/navigation_widgets.dart';
-import 'package:my_project/widgets/user_widgets.dart';
+import 'package:my_project/screens/user_profile/widgets/navigation_widgets.dart';
+import 'package:my_project/screens/user_profile/widgets/user_widgets.dart';
 
 class UserProfile extends StatelessWidget {
-  static const List<MenuRowData> NavigationMenuOne = [
+  //Имя переменной всегда начинается с маленькой буквы
+  static const List<MenuRowData> navigationMenuOne = [
     MenuRowData(Icons.bookmark, 'Избранное'),
     MenuRowData(Icons.call, 'Звонки'),
     MenuRowData(Icons.computer, 'Устройства'),
     MenuRowData(Icons.folder, 'Папки с чатами'),
   ];
 
+  //Тут нужно имя поменять на маленькую букву в начале
   static const List<MenuRowData> NavigationMenuTwo = [
     MenuRowData(Icons.notifications, 'Уведомления и звуки'),
     MenuRowData(Icons.private_connectivity, 'Конфиденциальность'),
@@ -18,10 +20,12 @@ class UserProfile extends StatelessWidget {
     MenuRowData(Icons.language, 'Язык'),
   ];
 
+  //Тут нужно имя поменять на маленькую букву в начале
   static const List<MenuRowData> NavigationMenuThree = [
     MenuRowData(Icons.lock_clock, 'Apple Watch'),
   ];
 
+  //Тут нужно имя поменять на маленькую букву в начале
   static const List<MenuRowData> NavigationMenuFour = [
     MenuRowData(Icons.help, 'Помощь'),
     MenuRowData(Icons.question_answer_outlined, 'Вопросы о Telegramm'),
@@ -37,19 +41,27 @@ class UserProfile extends StatelessWidget {
         centerTitle: true,
         title: const Text('Настройки'),
       ),
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         child: ListView(
           children: [
             _UserInfo(),
-            SizedBox(height: 20,),
-          const  MenuRowWidgets(menuRow: NavigationMenuOne),
-            SizedBox(height: 20,),
-            const  MenuRowWidgets(menuRow: NavigationMenuTwo ),
-            SizedBox(height: 20,),
-            const  MenuRowWidgets(menuRow: NavigationMenuThree),
-            SizedBox(height: 20,),
-            const  MenuRowWidgets(menuRow: NavigationMenuFour),
+            const SizedBox(
+              height: 20, // <- Не нужна запятая
+            ),
+            const MenuRowWidgets(menuRow: navigationMenuOne),
+            const SizedBox(
+              height: 20,  // <- Не нужна запятая
+            ),
+            const MenuRowWidgets(menuRow: NavigationMenuTwo),
+            const SizedBox(
+              height: 20,  // <- Не нужна запятая
+            ),
+            const MenuRowWidgets(menuRow: NavigationMenuThree),
+            const SizedBox(
+              height: 20,  // <- Не нужна запятая
+            ),
+            const MenuRowWidgets(menuRow: NavigationMenuFour),
           ],
         ),
       ),
@@ -70,26 +82,35 @@ class _UserInfo extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(
-                height: 20,
+                height: 20, // <- Не нужна запятая
               ),
               const AvatarWidget(),
               const SizedBox(
-                height: 20,
+                height: 20, // <- Не нужна запятая
               ),
-              UserNameWidget(),
+              const UserNameWidget(),
               const SizedBox(
-                height: 10,
+                height: 10, // <- Не нужна запятая
               ),
               UserEmailWidget(),
               const SizedBox(
-                height: 10,
+                height: 10, // <- Не нужна запятая
               ),
               const UserPhoneWidget(),
             ],
           ),
         ),
-        const Positioned( top:10 , right: 10, child: Text('Изм.',
-          style: TextStyle(color: Colors.blue,fontSize: 17,),),  ),
+        const Positioned(
+          top: 10,
+          right: 10,
+          child: Text(
+            'Изм.',
+            style: TextStyle(
+              color: Colors.blue,
+              fontSize: 17,
+            ),
+          ),
+        ),
       ],
     );
   }

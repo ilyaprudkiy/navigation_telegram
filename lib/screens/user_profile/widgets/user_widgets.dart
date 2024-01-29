@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 
+//В идеале для удобства чтения кода желательно, чтобы у каждого класса виджета был отдельный файл
 class AvatarWidget extends StatelessWidget {
   const AvatarWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
+    return const Center(
+      child: SizedBox(
         width: 100,
         height: 100,
-
-        child: const Placeholder(),
+        child: Placeholder(),
       ),
     );
   }
 }
 
 class UserNameWidget extends StatelessWidget {
-  UserNameWidget({Key? key}) : super(key: key);
+  const UserNameWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
